@@ -20,6 +20,9 @@ Route::get('{provider}/auth', 'SocialsController@auth')->name('social.auth');
 
 Route::get('/{provider}/redirect', 'SocialsController@auth_callback')->name('social.callback');
 
+Route::get('discuss', function () {
+    return view('discuss');
+});
 // Admin routes
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('channels', 'ChannelsController');
