@@ -10,12 +10,12 @@ class Discussion extends Model
 
     public function channel()
     {
-        return $this->belongTo('App\Channel');
+        return $this->belongsTo('App\Channel');
     }
 
     public function user()
     {
-        return $this->belongTo('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function replies()
