@@ -10,6 +10,11 @@
                 {{ csrf_field() }}
 
                 <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="title">
+                </div>
+
+                <div class="form-group">
                     <label>Pick a channel</label>
                     <select name="channel_id" class="form-control">
                         @foreach ($channels as $channel)
