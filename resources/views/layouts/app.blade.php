@@ -76,6 +76,8 @@
             <div class="row">
                 <div class="col-md-4">
                     
+                    <a href="{{ route('discussion.create') }}" class="form-control btn btn-outline-success">Create a new discussion</a>
+                    <br> <br>
                     <div class="card">
                         <div class="card-header bg-info text-white">
                             Channels
