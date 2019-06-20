@@ -30,4 +30,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('discussion/create', 'DiscussionsController@create')->name('discussion.create');
     Route::get('discussion/{slug}', 'DiscussionsController@show')->name('discussion');
     Route::post('discussion/store', 'DiscussionsController@store')->name('discussion.store');
+    Route::post('discussion/reply/{id}', 'DiscussionsController@reply')->name('discussion.reply');
 });

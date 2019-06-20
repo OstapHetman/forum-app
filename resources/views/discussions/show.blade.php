@@ -43,4 +43,20 @@
   </div>
 
   @endforeach
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <form action="{{ route('discussion.reply', ['id' => $d->id]) }}" method="post">
+        {{ csrf_field() }}
+        <div class="form-group">
+          <label><b>Leave a reply...</b></label>
+          <textarea name="reply" class="form-control" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success">Leave a reply</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
 @endsection
