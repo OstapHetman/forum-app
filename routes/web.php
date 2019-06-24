@@ -37,7 +37,9 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::get('relpy/like/{id}', 'RepliesController@like')->name('reply.like');
     Route::get('relpy/unlike/{id}', 'RepliesController@unlike')->name('reply.unlike');
+    Route::get('discussion/best/reply/{id}', 'RepliesController@best_answer')->name('reply.best.answer');
 
     Route::get('discussion/watch/{id}', 'WatchersController@watch')->name('watch');
     Route::get('discussion/unwatch/{id}', 'WatchersController@unwatch')->name('unwatch');
+    
 });

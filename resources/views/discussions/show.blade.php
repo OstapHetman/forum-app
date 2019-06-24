@@ -35,6 +35,13 @@
       <div class="card-header ">
         <img src="{{ $r->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
         <span>{{ $r->user->name }}, <small>{{ $r->created_at->diffForHumans() }}</small></span>
+        @if (!$best_answer)
+          <a href="{{ route('reply.best.answer', ['id' => $r->id]) }}" class="btn btn-primary btn-sm float-right text-white">Mark as Best Answer</a>
+        @endif
+
+        @if ($best_answer && ($r->user->id == $best_answer->user_id))
+          <span class="badge badge-success float-right">BEST ANSWER</span>
+        @endif
       </div>
 
       <div class="card-body">
