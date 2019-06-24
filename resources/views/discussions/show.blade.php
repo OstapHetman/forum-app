@@ -5,7 +5,7 @@
   <div class="card mb-4 bg-info text-white">
       <div class="card-header">
           <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
-          <span>{{ $d->user->name }}, <small>{{ $d->created_at->diffForHumans() }}</small></span>
+          <span>{{ $d->user->name }}, <small>({{ $d->user->points }})</small></span>
           @if ($d->is_being_watched_by_auth_user())
             <a href="{{ route('unwatch', ['id' => $d->id]) }}" class="btn btn-success float-right btn-sm">unwatch</a>
           @else
@@ -34,7 +34,7 @@
   <div class="card mb-4">
       <div class="card-header ">
         <img src="{{ $r->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
-        <span>{{ $r->user->name }}, <small>{{ $r->created_at->diffForHumans() }}</small></span>
+        <span>{{ $r->user->name }}, <small>({{ $r->user->points }})</small></span>
         @if (!$best_answer)
           <a href="{{ route('reply.best.answer', ['id' => $r->id]) }}" class="btn btn-primary btn-sm float-right text-white">Mark as Best Answer</a>
         @endif
