@@ -11,7 +11,7 @@
 
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" class="form-control" name="title">
+                    <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                 </div>
 
                 <div class="form-group">
@@ -25,7 +25,7 @@
 
                 <div class="form-group">
                     <label>Ask a question</label>
-                    <textarea name="content" rows="10" class="form-control"></textarea>
+                    <textarea name="content" rows="10" class="form-control" value="{{ old('content') }}"></textarea>
                 </div>
 
                 <div class="form-group">

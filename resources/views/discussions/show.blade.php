@@ -35,8 +35,10 @@
       <div class="card-header ">
         <img src="{{ $r->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
         <span>{{ $r->user->name }}, <small>({{ $r->user->points }})</small></span>
-        @if (!$best_answer)
-          <a href="{{ route('reply.best.answer', ['id' => $r->id]) }}" class="btn btn-primary btn-sm float-right text-white">Mark as Best Answer</a>
+        @if (Auth::id() == $r->user->id)
+          @if (!$best_answer)
+            <a href="{{ route('reply.best.answer', ['id' => $r->id]) }}" class="btn btn-primary btn-sm float-right text-white">Mark as Best Answer</a>
+          @endif
         @endif
 
         @if ($best_answer && ($r->user->id == $best_answer->user_id))
