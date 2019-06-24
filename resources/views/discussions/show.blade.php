@@ -48,6 +48,7 @@
 
   @endforeach
 
+  @if(Auth::check())
   <div class="card mb-4">
     <div class="card-body">
       <form action="{{ route('discussion.reply', ['id' => $d->id]) }}" method="post">
@@ -62,5 +63,10 @@
       </form>
     </div>
   </div>
+  @else
+  <div class="text-center">
+    <h2>Sign in to leave a reply.</h2>
+  </div>
+  @endif
 
 @endsection

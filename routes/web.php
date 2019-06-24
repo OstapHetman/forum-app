@@ -31,7 +31,7 @@ Route::get('channel/{slug}', 'ForumsController@channel')->name('channel');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('channels', 'ChannelsController');
 
-    Route::get('discussion/create', 'DiscussionsController@create')->name('discussion.create');    
+    Route::get('discussion/create/new', 'DiscussionsController@create')->name('discussion.create');    
     Route::post('discussion/store', 'DiscussionsController@store')->name('discussion.store');
     Route::post('discussion/reply/{id}', 'DiscussionsController@reply')->name('discussion.reply');
     
