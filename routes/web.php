@@ -25,6 +25,8 @@ Route::get('discuss', function () {
 });
 Route::get('discussion/{slug}', 'DiscussionsController@show')->name('discussion');
 
+Route::get('channel/{slug}', 'ForumsController@channel')->name('channel');
+
 // Admin routes
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('channels', 'ChannelsController');

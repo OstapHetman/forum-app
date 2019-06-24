@@ -39,9 +39,9 @@
 
       <div class="card-footer">
         @if ($r->is_liked_by_auth_user())
-          <a href="{{ route('reply.unlike', ['id' => $r->id]) }}" class="btn btn-danger">Unlike</a>
+          <a href="{{ route('reply.unlike', ['id' => $r->id]) }}" class="btn btn-danger">Unlike <span class="badge badge-light">{{ $r->likes->count() }}</span></a>
         @else
-          <a href="{{ route('reply.like', ['id' => $r->id]) }}" class="btn btn-success">Like</a>
+          <a href="{{ route('reply.like', ['id' => $r->id]) }}" class="btn btn-success">Like <span class="badge badge-light">{{ $r->likes->count() }}</span> </a>
         @endif
       </div>
   </div>
