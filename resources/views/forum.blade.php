@@ -20,8 +20,9 @@
                 </p>
             </div>
 
-            <div class="card-footer">
+            <div class="card-footer d-flex justify-content-between align-items-center">
                 <p class="mb-0">{{ $d->replies->count() }} Replies</p>
+                <span class="badge badge-warning">{{ $d->channel->title }}</span>
             </div>
         </div>
     @endforeach

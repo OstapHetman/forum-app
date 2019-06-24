@@ -6,6 +6,11 @@
       <div class="card-header">
           <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
           <span>{{ $d->user->name }}, <small>{{ $d->created_at->diffForHumans() }}</small></span>
+          @if ($d->is_being_watched_by_auth_user())
+            <a href="{{ route('unwatch', ['id' => $d->id]) }}" class="btn btn-success float-right btn-sm">unwatch</a>
+          @else
+          <a href="{{ route('watch', ['id' => $d->id]) }}" class="btn btn-success float-right btn-sm">watch</a>
+          @endif
       </div>
 
       <div class="card-body">
@@ -18,9 +23,10 @@
           </p>
       </div>
 
-      <div class="card-footer">
-          <p class="mb-0">{{ $d->replies->count() }} Replies</p>
-      </div>
+      <div class="card-footer d-flex justify-content-between align-items-center">
+        <p class="mb-0">{{ $d->replies->count() }} Replies</p>
+        <span class="badge badge-warning">{{ $d->channel->title }}</span>
+    </div>
   </div>
 
   @foreach ($d->replies as $r)
