@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Discussion;
 use App\Reply;
+use App\User;
+use Notification;
 use Auth;
 use Session;
 
@@ -43,17 +45,23 @@ class DiscussionsController extends Controller
    }
 
    public function reply($id)
-   {
-    // $id = Discussion::find($id);
-
-    $r = Reply::create([
-        'user_id' => Auth::id(),
-        'discussion_id' => $id,
-        'content' => request()->reply
-    ]);
-
-    Session::flash('success', 'Replied to discussion!');
-       
-    return redirect()->back();
-   }
+    {
+        $d = Discussion::find($id);
+        
+        $reply = Reply::create([
+            'user_id' => Auth::id(),
+            'discussion_id' => $id,
+            'content' => request()->reply
+        ]);
+        
+        $watchers = array();
+        foreach($d->watchers as $watcher):
+            array_push($watchers, User::find($watcher->user_id));
+        endforeach;
+        
+        Notification::send($watchers, new \App\Notifications\NewReplyAdded($d));
+        
+        Session::flash('success', 'Replied to discussion.');
+        return redirect()->back();
+    }
 }
