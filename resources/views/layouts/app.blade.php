@@ -86,6 +86,19 @@
                                 <li class="list-group-item">
                                     <a href="/forum">Home</a>
                                 </li>
+
+                                <li class="list-group-item">
+                                    <a href="/forum?filter=me">My discussions</a>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <a href="/forum?filter=solved">Closed discussions</a>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <a href="/forum?filter=unsolved">Open discussions</a>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
