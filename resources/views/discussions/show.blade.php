@@ -9,8 +9,13 @@
           @if ($d->is_being_watched_by_auth_user())
             <a href="{{ route('unwatch', ['id' => $d->id]) }}" class="btn btn-success float-right btn-sm">unwatch</a>
           @else
-          <a href="{{ route('watch', ['id' => $d->id]) }}" class="btn btn-success float-right btn-sm">watch</a>
+            <a href="{{ route('watch', ['id' => $d->id]) }}" class="btn btn-success float-right btn-sm">watch</a>
           @endif
+
+          @if (Auth::id() == $d->user->id)
+            <a href="{{ route('discussion.edit', ['slug' => $d->slug]) }}" class="btn btn-secondary mr-2 float-right btn-sm">edit</a>
+          @endif
+
       </div>
 
       <div class="card-body">

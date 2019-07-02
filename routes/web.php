@@ -31,9 +31,11 @@ Route::get('channel/{slug}', 'ForumsController@channel')->name('channel');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('channels', 'ChannelsController');
 
+    Route::get('discussion/edit/{slug}', 'DiscussionsController@edit')->name('discussion.edit');
     Route::get('discussion/create/new', 'DiscussionsController@create')->name('discussion.create');    
     Route::post('discussion/store', 'DiscussionsController@store')->name('discussion.store');
     Route::post('discussion/reply/{id}', 'DiscussionsController@reply')->name('discussion.reply');
+    Route::post('discussion/update/{id}', 'DiscussionsController@update')->name('discussion.update');
     
     Route::get('relpy/like/{id}', 'RepliesController@like')->name('reply.like');
     Route::get('relpy/unlike/{id}', 'RepliesController@unlike')->name('reply.unlike');
@@ -41,5 +43,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('discussion/watch/{id}', 'WatchersController@watch')->name('watch');
     Route::get('discussion/unwatch/{id}', 'WatchersController@unwatch')->name('unwatch');
+    
     
 });
