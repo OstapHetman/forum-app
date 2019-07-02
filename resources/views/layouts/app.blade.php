@@ -80,7 +80,6 @@
                     <br> <br>
 
                     <div class="card">
-
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">
@@ -100,7 +99,20 @@
                                 </li>
 
                             </ul>
-                        </div>
+                        </div>   
+
+                       @if (Auth::check())
+                        @if (Auth::user()->admin)
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <a href="/channels">All channels</a>
+                                    </li>
+                                </ul>
+                            </div>    
+                        @endif
+                       @endif
+
                     </div>
                     <br> <br>
                     
